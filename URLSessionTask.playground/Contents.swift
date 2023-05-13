@@ -23,9 +23,12 @@ func getData(url: String) {
         if let error = error {
             print("[error] \(String(describing: error))")
         }
-
-        guard let response = response as? HTTPURLResponse else { return }
-        guard let data = data else { return }
+        guard let response = response as? HTTPURLResponse else {
+            return print("no response")
+        }
+        guard let data = data else {
+            return print("no data")
+        }
         let dataAsString = String(data: data, encoding: .utf8)
 
         print("[responseStatusCode] = \(String(describing: response.statusCode))")
